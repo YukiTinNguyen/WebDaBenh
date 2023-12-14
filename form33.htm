@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script language="Javascript">
+        function doichu(){
+            var chu = document.f33.text1.value;
+            new_str = "";
+            for(let i = 0; i < chu.length; i++)
+            {
+                if(chu.charCodeAt(i) >= 65 && chu.charCodeAt(i) <= 90) new_str += (chu.charAt(i)).toLowerCase();
+                else
+                if(chu.charCodeAt(i) >= 97 && chu.charCodeAt(i) <= 122) new_str += (chu.charAt(i)).toUpperCase();
+                else new_str += chu.charAt(i);
+            }
+            document.f33.text2.value = new_str;
+        }
+    </script>
+</head>
+<body onload="document.f33.text1.focus()">
+    <form name = f33 action="xulidoichu.jsp" method="post">
+        <input type = text name = text1 value="" onblur="doichu()">
+        <input type = text name = text2 value="">
+    </form>
+</body>
+</html>

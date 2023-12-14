@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script language="Javascript">
+            function Checkname(name){
+                for(let i = 0; i<name.length; i++)
+                {
+                    if((name.charAt(i) >= 'A' && name.charAt(i) <= 'Z')||(name.charAt(i) >= 'a' && name.charAt(i) <= 'z')||
+                    (name.charAt(i) >= '0' && name.charAt(i) <= '9') )
+                    continue;
+                    else return false;
+                }
+                return true;
+            }
+            function XuliLogin(){
+                var username = document.f11.txt_user.value;
+                var mk = document.f11.txt_password.value;
+                if (username == ""){
+                    alert("Tên đăng nhập còn trống!");
+                    document.f11.txt_user.focus();
+                } else
+                if (mk == ""){
+                    alert("Mật khẩu còn trống!");
+                    document.f11.txt_password.focus();
+                } else
+                if(mk.length<6 || mk.length>30){
+                    alert("Mật khẩu phải từ 6 - 30 ký tự");
+                    document.f11.txt_password.focus();
+                } else
+                if(username.length <3 || username.length>20 || !(Checkname(username)) ){
+                    alert("Tên đăng nhập hoặc mật khẩu không chính xác.");
+                    document.f11.txt_user.focus();
+                } else{              
+                    alert("Đăng nhập thành công!");
+                }
+            }
+            function XuliReset(){
+                document.f11.txt_user.value = "";
+                document.f11.txt_password.value = "";
+                document.f11.txt_user.focus();
+            }
+        </script>
+    </head>
+    <body bgcolor="#99FFCC" onload="document.f11.txt_user.focus()">
+        <form name = f11 action="login.jsp" method="post">
+            <div>
+                <h3 style="text-align: center;">Login</h3>
+            </div>
+            <div class="table">
+                <table>
+                    <tr>
+                        <td>Username</td> <td><input type="text" name="txt_user" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td> <td><input type="password" name="txt_password" value=""></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="text-align: center;">
+                <input type="button" name="bt_Ok" value="OK" onclick="XuliLogin()">
+                <input type="button" name="bt_Reset" value="Reset" onclick="XuliReset()">
+            </div>
+        </form>
+    </body>
+</html>
