@@ -1,16 +1,49 @@
 <html> 
     <head>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            }
+
+            div {
+                border-bottom: 2px solid #ccc; /* Thêm border dưới cho div */
+            }
+
+            iframe {
+                display: block;
+                border: none;
+            }
+
+            .content {
+                height: 80%;
+                width: 100%;
+                display: flex;
+            }
+
+            #menu {
+                width: 20%;
+                border-right: 2px solid #ccc; /* Thêm border phải cho div 2 */
+            }
+            #content {
+                width: 79%;
+            }
+            #footer {
+                width: 100%;
+                height: 100;
+            }
+        </style>
     </head>
     <body>
         <div>
-            <iframe src="Header.htm" height="13%" width="100%"></iframe>
+            <iframe src="Header.htm" width="100%" height="13%"></iframe>
+        </div>
+        <div class="content">
+            <iframe id="menu" src="Menu.htm"></iframe>
+            <iframe name="content" id="content" src="ContentIndex.htm"></iframe>
         </div>
         <div>
-            <iframe src="Menu.htm" height="80%" width="20%"></iframe>
-            <iframe name="content" src="ContentIndex.htm" height="80%" width="79%"></iframe>
+            <iframe id="footer" src="Footer.htm"></iframe>
         </div>
-        <div>
-            <iframe src="Footer.htm" height="100" width="100%"></iframe>
-        </div>        
     </body>
 </html>
